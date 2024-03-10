@@ -10,6 +10,18 @@ import { getProfile } from './routes/get-profile'
 import { getManagedRestaurant } from './routes/get-managed-restaurant'
 
 new Elysia()
+  .onError(({ error, code, set }) => {
+    switch (code) {
+      case 'VALIDATION': {
+        set.status = error.status
+
+        return error.toResponse()
+      }
+      default: {
+        return new Response(null, { status: 500 })
+      }
+    }
+  })
   .use(registerRestaurant)
   .use(sendAuthLink)
   .use(authenticateFromLink)
