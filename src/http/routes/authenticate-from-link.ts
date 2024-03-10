@@ -7,8 +7,8 @@ import { eq } from 'drizzle-orm'
 
 export const authenticateFromLink = new Elysia().use(auth).get(
   '/auth-links/authenticate',
-  async ({ query, signUser, set }) => {
-    const { code, redirect } = query
+  async ({ query, signUser }) => {
+    const { code } = query
     const authLinkFromCode = await db.query.authLinks.findFirst({
       where(fields, { eq }) {
         return eq(fields.code, code)
@@ -35,13 +35,11 @@ export const authenticateFromLink = new Elysia().use(auth).get(
     })
 
     await signUser({
-      sub: authLinkFromCode.code,
+      sub: authLinkFromCode.userId,
       restaurantId: manageRestaurant?.id,
     })
 
     await db.delete(authLinks).where(eq(authLinks.code, code))
-
-    set.redirect = redirect
   },
   {
     query: t.Object({

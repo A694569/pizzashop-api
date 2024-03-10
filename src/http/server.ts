@@ -7,6 +7,7 @@ import { registerRestaurant } from './routes/register-restaurant'
 import { sendAuthLink } from './routes/send-auth-link'
 import { authenticateFromLink } from './routes/authenticate-from-link'
 import { signOut } from './routes/sign-out'
+import { getProfile } from './routes/get-profile'
 
 new Elysia()
   .use(registerRestaurant)
@@ -14,6 +15,7 @@ new Elysia()
   .use(sendAuthLink)
   .use(authenticateFromLink)
   .use(signOut)
+  .use(getProfile)
   .get('/', () => {
     return 'Hello World'
   })
