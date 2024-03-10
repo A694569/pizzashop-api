@@ -8,7 +8,7 @@ const sql = postgres(env.DB_URL ?? '', { max: 1 })
 const db = drizzle(sql)
 await migrate(db, { migrationsFolder: 'drizzle' })
 
-console.log(chalk.greenBright('Migrations applied successfully!'))
+console.log(chalk.green('Migrations applied successfully!'))
 
 await sql.end()
 

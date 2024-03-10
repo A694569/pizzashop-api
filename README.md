@@ -19,7 +19,13 @@ This project was created using `bun init` in bun v1.0.30. [Bun](https://bun.sh) 
 
 Create a .env file and add a key **DB_URL** with value **postgresql://docker:docker@localhost:5431/pizzashop**.
 
-Call the endpoints in console:
+- Call the endpoints in console:
+
+Authenticate
+
+```bash
+http POST ":3333/authenticate" email="manager.thiago@pizzashop.com"
+```
 
 Create restaurant
 
