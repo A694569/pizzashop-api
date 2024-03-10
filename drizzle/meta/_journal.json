@@ -36,6 +36,13 @@
       "when": 1710083393996,
       "tag": "0004_nasty_mauler",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1710091466792,
+      "tag": "0005_mighty_karen_page",
+      "breakpoints": true
     }
   ]
 }

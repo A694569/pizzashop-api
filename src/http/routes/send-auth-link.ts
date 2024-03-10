@@ -28,8 +28,8 @@ export const sendAuthLink = new Elysia().post(
 
     const authLink = new URL('/auth-links/authenticate', env.API_BASE_URL)
     authLink.searchParams.set('code', authLinkCode)
-    authLink.searchParams.set('rediretct', env.AUTH_REDIRECT_URL)
-    // Result: http://localhost:3333/auth-links/authenticate?code=hpysbhm1178tf1nnla9jop0c&rediretct=http://localhost:5173
+    authLink.searchParams.set('redirect', env.AUTH_REDIRECT_URL)
+    // Result: http://localhost:3333/auth-links/authenticate?code=hpysbhm1178tf1nnla9jop0c&redirect=http://localhost:5173
 
     // TODO: Send mail to user
     console.log(authLink.toString())

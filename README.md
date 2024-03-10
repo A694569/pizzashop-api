@@ -21,10 +21,16 @@ Create a .env file and add a key **DB_URL** with value **postgresql://docker:doc
 
 - Call the endpoints in console:
 
-Authenticate
+Send Auth Link
 
 ```bash
 http POST ":3333/authenticate" email="manager.thiago@pizzashop.com"
+```
+
+Authenticate
+
+```bash
+http GET ":3333/auth-links/authenticate?code=bzm5b4iufhit3t3pldacv6lw&redirect=http://localhost:5173"
 ```
 
 Create restaurant
