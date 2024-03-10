@@ -1,0 +1,34 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1710077505456,
+      "tag": "0000_slimy_klaw",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1710077511430,
+      "tag": "0001_last_night_thrasher",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1710077613251,
+      "tag": "0002_green_rocket_raccoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1710077709765,
+      "tag": "0003_minor_firedrake",
+      "breakpoints": true
+    }
+  ]
+}
