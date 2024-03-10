@@ -6,10 +6,16 @@ To install dependencies:
 bun install
 ```
 
-To run:
+To run database with Docker Compose:
 
 ```bash
-bun run index.ts
+docker-compose up
+```
+
+To run project:
+
+```bash
+bun dev
 ```
 
 This project was created using `bun init` in bun v1.0.30. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
