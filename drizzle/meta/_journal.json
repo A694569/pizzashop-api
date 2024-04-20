@@ -43,6 +43,27 @@
       "when": 1710091466792,
       "tag": "0005_mighty_karen_page",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1713622214836,
+      "tag": "0006_eager_next_avengers",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1713622828104,
+      "tag": "0007_natural_lyja",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1713624182269,
+      "tag": "0008_special_vertigo",
+      "breakpoints": true
     }
   ]
 }
