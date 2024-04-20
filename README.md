@@ -86,6 +86,12 @@ Get Managed Restaurant
 http GET ":3333/managed-restaurant" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
 
+Get Orders (filters are optionals)
+
+```bash
+http GET ":3333/orders" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
 Get Order Details
 
 ```bash
