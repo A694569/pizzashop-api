@@ -14,6 +14,11 @@ import { cancelOrder } from './routes/cancel-order'
 import { deliverOrder } from './routes/deliver-order'
 import { dispatchOrder } from './routes/dispatch-order'
 import { getOrders } from './routes/get-orders'
+import { getMonthRevenue } from './routes/get-month-revenue'
+import { getDayOrdersAmount } from './routes/get-day-orders-amount'
+import { getMonthOrdersAmount } from './routes/get-month-orders-amount'
+import { getPopularProducts } from './routes/get-popular-products'
+import { getDailyReveneuInPeriod } from './routes/get-daily-revenue-in-period'
 
 new Elysia()
   .onError(({ error, code, set }) => {
@@ -42,6 +47,11 @@ new Elysia()
   .use(deliverOrder)
   .use(dispatchOrder)
   .use(getOrders)
+  .use(getMonthRevenue)
+  .use(getDayOrdersAmount)
+  .use(getMonthOrdersAmount)
+  .use(getPopularProducts)
+  .use(getDailyReveneuInPeriod)
   .get('/', () => {
     return 'Hello World'
   })

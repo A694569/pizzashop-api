@@ -77,7 +77,7 @@ http GET ":3333/me" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 Create Restaurant
 
 ```bash
-http POST ":3333/restaurants" restaurantName="Pizza Hut" managerName="Thiago Santana" phone="123456789" email="manager.thiago@pizzashop.com" 
+http POST ":3333/restaurants" restaurantName="Pizza Hut" managerName="Thiago Santana" phone="123456789" email="manager.thiago@pizzashop.com"
 ```
 
 Get Managed Restaurant
@@ -86,7 +86,7 @@ Get Managed Restaurant
 http GET ":3333/managed-restaurant" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
 
-Get Orders (filters are optionals)
+Get Orders (filters are optional)
 
 ```bash
 http GET ":3333/orders" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
@@ -120,4 +120,34 @@ Deliver Order
 
 ```bash
 http PATCH ":3333/orders/:orderId/deliver" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Get Month Revenue
+
+```bash
+http GET ":3333/metrics/month-revenue" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Get Day Order Amount
+
+```bash
+http GET ":3333/metrics/day-order-amount" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Get Month Orders Amount (with optional 'status' filter)
+
+```bash
+http GET ":3333/metrics/month-orders-amount" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Get Popular Products
+
+```bash
+http GET ":3333/metrics/popular-products" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Get Daily Revenue In Period
+
+```bash
+http GET ":3333/metrics/daily-revenue-in-period" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
