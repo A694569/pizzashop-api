@@ -8,6 +8,8 @@ import { authenticateFromLink } from './routes/authenticate-from-link'
 import { signOut } from './routes/sign-out'
 import { getProfile } from './routes/get-profile'
 import { getManagedRestaurant } from './routes/get-managed-restaurant'
+import { getOrderDetails } from './routes/get-order-details'
+import { approveOrder } from './routes/approve-order'
 
 new Elysia()
   .onError(({ error, code, set }) => {
@@ -28,6 +30,8 @@ new Elysia()
   .use(signOut)
   .use(getProfile)
   .use(getManagedRestaurant)
+  .use(getOrderDetails)
+  .use(approveOrder)
   .get('/', () => {
     return 'Hello World'
   })

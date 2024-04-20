@@ -68,6 +68,12 @@ Auth from Link
 http GET ":3333/auth-links/authenticate?code=bzm5b4iufhit3t3pldacv6lw&redirect=http://localhost:5173"
 ```
 
+Get User Profile
+
+```bash
+http GET ":3333/me" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
 Create Restaurant
 
 ```bash
@@ -77,11 +83,17 @@ http POST ":3333/restaurants" restaurantName="Pizza Hut" managerName="Thiago San
 Get Managed Restaurant
 
 ```bash
-http GET ":3333/managed-restaurant" Cookie:auth=<jwt-token>; Max-Age=604800; Path=/; HttpOnly
+http GET ":3333/managed-restaurant" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
 
-Get User Profile
+Get Order Details
 
 ```bash
-http GET ":3333/me" Cookie:auth=<jwt-token>; Max-Age=604800; Path=/; HttpOnly
+http GET ":3333/orders/:orderId" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Approve Order
+
+```bash
+http PATCH ":3333/orders/:orderId/approve" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
