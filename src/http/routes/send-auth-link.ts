@@ -3,6 +3,8 @@ import { db } from '../../db/connection'
 import { createId } from '@paralleldrive/cuid2'
 import { authLinks } from '../../db/schema'
 import { env } from '../../env'
+import { mail } from '../../lib/mail'
+import nodemailer from 'nodemailer'
 
 export const sendAuthLink = new Elysia().post(
   '/authenticate',
@@ -31,9 +33,16 @@ export const sendAuthLink = new Elysia().post(
     authLink.searchParams.set('redirect', env.AUTH_REDIRECT_URL)
     // Result: http://localhost:3333/auth-links/authenticate?code=hpysbhm1178tf1nnla9jop0c&redirect=http://localhost:5173
 
-    // TODO: Send mail to user
-    console.log(authLink.toString())
-
+    const info = await mail.sendMail({
+      from: {
+        name: 'Pizza Shop',
+        address: 'hi@pizzashop.com',
+      },
+      to: email,
+      subject: 'Authenticate to Pizza Shop',
+      text: `Use the following link to authenticate on Pizza Shop ${authLink.toString()}`,
+    })
+    console.log(`Email sent: ${nodemailer.getTestMessageUrl(info)}`)
     set.status = 200
   },
   {
