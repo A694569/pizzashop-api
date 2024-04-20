@@ -5,8 +5,8 @@ import { orders } from '../../db/schema'
 import { auth } from '../auth'
 import { UnauthorizedError } from '../errors/unauthorized'
 
-export const approveOrder = new Elysia().use(auth).patch(
-  '/orders/:orderId/approve',
+export const cancelOrder = new Elysia().use(auth).patch(
+  '/orders/:orderId/cancel',
   async ({ getCurrentUser, params, set }) => {
     const { orderId } = params
     const { restaurantId } = await getCurrentUser()
@@ -26,14 +26,14 @@ export const approveOrder = new Elysia().use(auth).patch(
       return { message: 'Order not found' }
     }
 
-    if (order.status !== 'pending') {
+    if (!['pending', 'processing'].includes(order.status)) {
       set.status = 400
-      return { message: 'You can only approve pending orders' }
+      return { message: 'You cannot cancel orders after dispatch' }
     }
 
     await db
       .update(orders)
-      .set({ status: 'processing' })
+      .set({ status: 'canceled' })
       .where(eq(orders.id, orderId))
   },
   {

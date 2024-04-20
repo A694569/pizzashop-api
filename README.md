@@ -97,3 +97,21 @@ Approve Order
 ```bash
 http PATCH ":3333/orders/:orderId/approve" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
 ```
+
+Cancel Order
+
+```bash
+http PATCH ":3333/orders/:orderId/cancel" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Dispatch Order
+
+```bash
+http PATCH ":3333/orders/:orderId/dispatch" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```
+
+Deliver Order
+
+```bash
+http PATCH ":3333/orders/:orderId/deliver" Cookie:auth="<jwt-token>; Max-Age=604800; Path=/; HttpOnly"
+```

@@ -5,8 +5,8 @@ import { orders } from '../../db/schema'
 import { auth } from '../auth'
 import { UnauthorizedError } from '../errors/unauthorized'
 
-export const approveOrder = new Elysia().use(auth).patch(
-  '/orders/:orderId/approve',
+export const dispatchOrder = new Elysia().use(auth).patch(
+  '/orders/:orderId/dispatch',
   async ({ getCurrentUser, params, set }) => {
     const { orderId } = params
     const { restaurantId } = await getCurrentUser()
@@ -26,14 +26,17 @@ export const approveOrder = new Elysia().use(auth).patch(
       return { message: 'Order not found' }
     }
 
-    if (order.status !== 'pending') {
+    if (order.status !== 'processing') {
       set.status = 400
-      return { message: 'You can only approve pending orders' }
+      return {
+        message:
+          'You cannot dispatch orders that are not in "processing" status',
+      }
     }
 
     await db
       .update(orders)
-      .set({ status: 'processing' })
+      .set({ status: 'delivering' })
       .where(eq(orders.id, orderId))
   },
   {

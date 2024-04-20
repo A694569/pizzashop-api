@@ -10,6 +10,9 @@ import { getProfile } from './routes/get-profile'
 import { getManagedRestaurant } from './routes/get-managed-restaurant'
 import { getOrderDetails } from './routes/get-order-details'
 import { approveOrder } from './routes/approve-order'
+import { cancelOrder } from './routes/cancel-order'
+import { deliverOrder } from './routes/deliver-order'
+import { dispatchOrder } from './routes/dispatch-order'
 
 new Elysia()
   .onError(({ error, code, set }) => {
@@ -32,6 +35,9 @@ new Elysia()
   .use(getManagedRestaurant)
   .use(getOrderDetails)
   .use(approveOrder)
+  .use(cancelOrder)
+  .use(deliverOrder)
+  .use(dispatchOrder)
   .get('/', () => {
     return 'Hello World'
   })
